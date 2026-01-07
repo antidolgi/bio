@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТуалетБио — Аренда биотуалетов по всей России с доставкой за 2 часа</title>
+    <meta name="description" content="Профессиональная аренда биотуалетов с доставкой, установкой и обслуживанием. Работаем по всей РФ, круглосуточная поддержка.">
+    <meta name="keywords" content="биотуалет, аренда биотуалета, туалетбио, биотуалеты Москва, Санкт-Петербург, доставка">
+    
+    <!-- Preload критичных ресурсов -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Иконки Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Шрифты Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lottie Player для анимаций -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:title" content="ТуалетБио — Профессиональные биотуалеты по всей России">
+    <meta property="og:description" content="Доставка за 2 часа, установка, обслуживание. Чистота и комфорт в один клик.">
+    <meta property="og:image" content="https://туалетбио.рф/assets/social-preview.jpg">
+    <meta property="og:url" content="https://туалетбио.рф">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ТуалетБио — Аренда биотуалетов">
+    <meta name="twitter:description" content="Профессиональные санитарные решения для бизнеса и мероприятий">
+    
+    <!-- No-JS fallback -->
+    <noscript>
+        <style>
+            .js-required { display: none; }
+            .no-js-message {
+                display: block;
+                background: linear-gradient(135deg, #FF7A00, #FF5252);
+                color: white;
+                padding: 20px;
+                text-align: center;
+                border-radius: 10px;
+                margin: 20px 0;
+                animation: pulse 2s infinite;
+            }
+        </style>
+    </noscript>
+    
+    <!-- Schema.org микроразметка -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ТуалетБио",
+        "url": "https://туалетбио.рф",
+        "logo": "https://туалетбио.рф/assets/logo.svg",
+        "description": "Аренда и продажа профессиональных биотуалетов с доставкой по всей России",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "RU",
+            "addressLocality": "Москва"
+        },
+        "openingHours": "24/7",
+        "telephone": "+7(995)788-66-68",
+        "priceRange": "₽₽",
+        "sameAs": [
+            "https://vk.com/tualetbio",
+            "https://t.me/tualetbio_bot"
+        ]
+    }
+    </script>
+    
+    <!-- Yandex.Metrika counter placeholder -->
+    <!-- Замените XXXXXX на ваш ID после установки -->
+    <!-- Google Analytics placeholder -->
+    <!-- Замените G-XXXXXXXXXX на ваш ID после установки -->
+</head>
+<body>
+    <!-- Частицы в фоне -->
+    <div class="particles-container">
+        <canvas id="particles-canvas"></canvas>
+    </div>
+    
+    <!-- Переключатель темы -->
+    <button class="theme-toggle" aria-label="Переключить светлую/тёмную тему">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Мобильное меню -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Главная навигация -->
+    <nav class="navbar glass-effect" data-3d="true">
+        <div class="container">
+            <a href="#hero" class="logo">
+                <div class="logo-icon">
+                    <!-- SVG логотипа inline для скорости загрузки -->
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5C29 5 35 15 35 20C35 25 29 35 20 35C11 35 5 25 5 20C5 15 11 5 20 5Z" fill="#00C9B1"/>
+                        <rect x="15" y="12" width="10" height="16" rx="2" fill="white" stroke="#00C9B1" stroke-width="1"/>
+                        <circle cx="24" cy="20" r="1.5" fill="#FF7A00"/>
+                        <text x="20" y="38" text-anchor="middle" font-family="Arial" font-size="8" fill="#2A5D8A">.РФ</text>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">ТУАЛЕТ<span class="logo-accent">БИО</span></span>
+                    <span class="logo-domain">туалетбио.рф</span>
+                </div>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#hero" class="nav-link" data-hover="Главная">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="#services" class="nav-link" data-hover="Услуги">
+                    <i class="fas fa-concierge-bell"></i> Услуги
+                </a>
+                <a href="#models" class="nav-link" data-hover="Модели">
+                    <i class="fas fa-toilet"></i> Модели
+                </a>
+                <a href="#calculator" class="nav-link" data-hover="Калькулятор">
+                    <i class="fas fa-calculator"></i> Расчёт
+                </a>
+                <a href="#order" class="btn btn-primary btn-sm pulse-glow">
+                    <i class="fas fa-bolt"></i> Заказать
+                </a>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section id="hero" class="hero-section parallax-section">
+        <div class="hero-background">
+            <div class="parallax-layer" data-depth="0.1"></div>
+            <div class="parallax-layer" data-depth="0.3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span class="badge-text">Доставка по всей России</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Биотуалеты</span>
+                    <span class="hero-title-line accent">с умной доставкой</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Чистота и комфорт там, где они нужны. Доставка за 2 часа, профессиональная установка, круглосуточное обслуживание.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-count="120">0</div>
+                            <div class="stat-label">минут доставки</div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon">📞</div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">минут на ответ</div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-count="1500">0</div>
+                            <div class="stat-label">довольных клиентов</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg pulse-once" onclick="scrollToSection('order')">
+                        <i class="fas fa-bolt"></i> Рассчитать стоимость
+                    </button>
+                    <button class="btn btn-outline btn-lg" onclick="open3DViewer()">
+                        <i class="fas fa-cube"></i> 3D-тур
+                    </button>
+                </div>
+                
+                <div class="hero-scroll">
+                    <div class="scroll-text">Листайте вниз</div>
+                    <div class="scroll-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3D модель биотуалета -->
+            <div class="hero-3d">
+                <div class="toilet-3d-model" id="toiletModel">
+                    <div class="toilet-3d-wrapper">
+                        <!-- 3D модель будет создана через CSS -->
+                        <div class="toilet-cabin">
+                            <div class="toilet-door" id="toiletDoor">
+                                <div class="door-handle" onclick="toggleDoor()">
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                            </div>
+                            <div class="toilet-base"></div>
+                            <div class="toilet-seat"></div>
+                            <div class="toilet-tank">
+                                <div class="water-level"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toilet-badge">
+                        <span class="badge-text">EcoTech</span>
+                    </div>
+                </div>
+                
+                <!-- Анимация доставки Lottie -->
+                <div class="delivery-animation">
+                    <lottie-player
+                        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXFnMmtxajJ0c2loaWQ2OHpjZHJnMGk3ZmhxdTB0dzB2dXVhNXpsMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5GNd33TpAZuL3G2VCs/giphy.gif"
+                        background="transparent"
+                        speed="1"
+                        style="width: 300px; height: 200px;"
+                        loop
+                        autoplay>
+                    </lottie-player>
+                    <div class="delivery-text">
+                        <i class="fas fa-truck"></i> Доставка за 2 часа
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages" class="advantages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Почему выбирают <span class="accent">ТуалетБио</span></h2>
+                <p class="section-subtitle">Наши преимущества, которые делают сервис лучшим на рынке</p>
+            </div>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card" data-aos="fade-up">
+                    <div class="advantage-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <h3>Доставка за 2 часа</h3>
+                    <p>Собственный автопарк и логистическая система позволяют доставлять биотуалеты в течение 2 часов после заказа.</p>
+                    <div class="advantage-meta">
+                        <span class="meta-item"><i class="fas fa-clock"></i> 24/7</span>
+                        <span class="meta-item"><i class="fas fa-map-marker-alt"></i> По всей РФ</span>
+                    </div>
+                </div>
+                
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Гарантия чистоты</h3>
+                    <p>Используем только биоразлагаемые реагенты, проводим дезинфекцию после каждого использования.</p>
+                    <div class="advantage-meta">
+                        <span class="meta-item"><i class="fas fa-check-circle"></i> Санстандарты</span>
+                        <span class="meta-item"><i class="fas fa-virus-slash"></i> Антибактериальная</span>
+                    </div>
+                </div>
+                
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="advantage-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Обслуживание 24/7</h3>
+                    <p>Круглосуточная служба поддержки и аварийного обслуживания. Решаем проблемы до их возникновения.</p>
+                    <div class="advantage-meta">
+                        <span class="meta-item"><i class="fas fa-headset"></i> Поддержка</span>
+                        <span class="meta-item"><i class="fas fa-tools"></i> Ремонт</span>
+                    </div>
+                </div>
+                
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="advantage-icon">
+                        <i class="fas fa-ruble-sign"></i>
+                    </div>
+                    <h3>Прозрачные цены</h3>
+                    <p>Никаких скрытых платежей. В стоимость включены доставка, установка и первое обслуживание.</p>
+                    <div class="advantage-meta">
+                        <span class="meta-item"><i class="fas fa-percent"></i> Скидки</span>
+                        <span class="meta-item"><i class="fas fa-file-invoice"></i> Отчётность</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши <span class="accent">услуги</span></h2>
+                <p class="section-subtitle">Комплексные решения для любых задач и мероприятий</p>
+            </div>
+            
+            <div class="services-tabs">
+                <button class="service-tab active" data-service="rent">Аренда</button>
+                <button class="service-tab" data-service="sale">Продажа</button>
+                <button class="service-tab" data-service="service">Обслуживание</button>
+                <button class="service-tab" data-service="delivery">Доставка</button>
+            </div>
+            
+            <div class="services-content">
+                <div class="service-content active" id="rent-content">
+                    <div class="service-info">
+                        <h3>Аренда биотуалетов</h3>
+                        <p>Гибкие условия аренды от 1 дня до нескольких месяцев. Идеально для строительных площадок, мероприятий, частных нужд.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> От 990 ₽/сутки</li>
+                            <li><i class="fas fa-check"></i> Минимальный срок — 1 день</li>
+                            <li><i class="fas fa-check"></i> Бесплатная доставка и установка</li>
+                            <li><i class="fas fa-check"></i> Регулярное обслуживание включено</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="scrollToSection('order')">
+                            <i class="fas fa-calendar-alt"></i> Заказать аренду
+                        </button>
+                    </div>
+                    <div class="service-image">
+                        <img src="assets/images/service-rent.jpg" alt="Аренда биотуалетов" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="service-content" id="sale-content">
+                    <div class="service-info">
+                        <h3>Продажа биотуалетов</h3>
+                        <p>Продажа новых и б/у биотуалетов. Гарантия 1 год, помощь в выборе модели, обучение персонала.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> От 25 000 ₽</li>
+                            <li><i class="fas fa-check"></i> Гарантия 12 месяцев</li>
+                            <li><i class="fas fa-check"></i> Бесплатная консультация</li>
+                            <li><i class="fas fa-check"></i> Обучение обслуживанию</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="scrollToSection('order')">
+                            <i class="fas fa-shopping-cart"></i> Купить
+                        </button>
+                    </div>
+                    <div class="service-image">
+                        <img src="assets/images/service-sale.jpg" alt="Продажа биотуалетов" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="service-content" id="service-content">
+                    <div class="service-info">
+                        <h3>Профессиональное обслуживание</h3>
+                        <p>Регулярная очистка, дезинфекция, заправка реагентами. Работаем по графику или по вызову.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> От 500 ₽/очистка</li>
+                            <li><i class="fas fa-check"></i> Круглосуточный выезд</li>
+                            <li><i class="fas fa-check"></i> Используем биоразлагаемые реагенты</li>
+                            <li><i class="fas fa-check"></i> Отчёт о проведённых работах</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="scrollToSection('order')">
+                            <i class="fas fa-concierge-bell"></i> Заказать обслуживание
+                        </button>
+                    </div>
+                    <div class="service-image">
+                        <img src="assets/images/service-maintenance.jpg" alt="Обслуживание биотуалетов" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="service-content" id="delivery-content">
+                    <div class="service-info">
+                        <h3>Доставка и установка</h3>
+                        <p>Быстрая доставка в любую точку города. Профессиональная установка на ровную поверхность.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> От 1 500 ₽</li>
+                            <li><i class="fas fa-check"></i> В течение 2 часов</li>
+                            <li><i class="fas fa-check"></i> Установка включена</li>
+                            <li><i class="fas fa-check"></i> Круглосуточно</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="scrollToSection('order')">
+                            <i class="fas fa-truck"></i> Заказать доставку
+                        </button>
+                    </div>
+                    <div class="service-image">
+                        <img src="assets/images/service-delivery.jpg" alt="Доставка биотуалетов" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модели -->
+    <section id="models" class="models-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши <span class="accent">модели</span></h2>
+                <p class="section-subtitle">Широкий выбор биотуалетов для любых задач и бюджетов</p>
+            </div>
+            
+            <div class="models-filter">
+                <button class="filter-btn active" data-filter="all">Все модели</button>
+                <button class="filter-btn" data-filter="standard">Стандарт</button>
+                <button class="filter-btn" data-filter="comfort">Комфорт</button>
+                <button class="filter-btn" data-filter="premium">Премиум</button>
+                <button class="filter-btn" data-filter="mobile">Мобильные</button>
+            </div>
+            
+            <div class="models-grid">
+                <div class="model-card" data-category="standard">
+                    <div class="model-badge popular">Популярный</div>
+                    <div class="model-image">
+                        <img src="assets/images/model-standard.jpg" alt="Стандартный биотуалет" loading="lazy">
+                        <button class="model-3d-btn" onclick="openModel3D('standard')">
+                            <i class="fas fa-cube"></i> 3D
+                        </button>
+                    </div>
+                    <div class="model-info">
+                        <h3>Стандарт Эко</h3>
+                        <p class="model-desc">Базовый вариант для строительных площадок и мероприятий</p>
+                        <div class="model-features">
+                            <span><i class="fas fa-users"></i> 1-15 чел/день</span>
+                            <span><i class="fas fa-snowflake"></i> +5°C...+35°C</span>
+                            <span><i class="fas fa-weight"></i> 50 кг</span>
+                        </div>
+                        <div class="model-price">
+                            <span class="price-old">1 200 ₽</span>
+                            <span class="price-current">990 ₽/сутки</span>
+                        </div>
+                        <button class="btn btn-outline btn-block" onclick="selectModel('Стандарт Эко')">
+                            <i class="fas fa-cart-plus"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="model-card featured" data-category="comfort">
+                    <div class="model-badge hit">Хит продаж</div>
+                    <div class="model-image">
+                        <img src="assets/images/model-comfort.jpg" alt="Комфорт биотуалет" loading="lazy">
+                        <button class="model-3d-btn" onclick="openModel3D('comfort')">
+                            <i class="fas fa-cube"></i> 3D
+                        </button>
+                    </div>
+                    <div class="model-info">
+                        <h3>Комфорт Плюс</h3>
+                        <p class="model-desc">С раковиной, зеркалом и улучшенной вентиляцией</p>
+                        <div class="model-features">
+                            <span><i class="fas fa-users"></i> 1-30 чел/день</span>
+                            <span><i class="fas fa-snowflake"></i> -10°C...+40°C</span>
+                            <span><i class="fas fa-weight"></i> 80 кг</span>
+                        </div>
+                        <div class="model-price">
+                            <span class="price-old">1 800 ₽</span>
+                            <span class="price-current">1 490 ₽/сутки</span>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="selectModel('Комфорт Плюс')">
+                            <i class="fas fa-cart-plus"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="model-card" data-category="premium">
+                    <div class="model-badge luxury">Люкс</div>
+                    <div class="model-image">
+                        <img src="assets/images/model-premium.jpg" alt="Премиум биотуалет" loading="lazy">
+                        <button class="model-3d-btn" onclick="openModel3D('premium')">
+                            <i class="fas fa-cube"></i> 3D
+                        </button>
+                    </div>
+                    <div class="model-info">
+                        <h3>Премиум Люкс</h3>
+                        <p class="model-desc">VIP-кабина с подогревом, освещением и сенсорным управлением</p>
+                        <div class="model-features">
+                            <span><i class="fas fa-users"></i> 1-50 чел/день</span>
+                            <span><i class="fas fa-snowflake"></i> -20°C...+40°C</span>
+                            <span><i class="fas fa-weight"></i> 120 кг</span>
+                        </div>
+                        <div class="model-price">
+                            <span class="price-old">2 500 ₽</span>
+                            <span class="price-current">1 990 ₽/сутки</span>
+                        </div>
+                        <button class="btn btn-outline btn-block" onclick="selectModel('Премиум Люкс')">
+                            <i class="fas fa-cart-plus"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="model-card" data-category="mobile">
+                    <div class="model-badge new">Новинка</div>
+                    <div class="model-image">
+                        <img src="assets/images/model-mobile.jpg" alt="Мобильный комплекс" loading="lazy">
+                        <button class="model-3d-btn" onclick="openModel3D('mobile')">
+                            <i class="fas fa-cube"></i> 3D
+                        </button>
+                    </div>
+                    <div class="model-info">
+                        <h3>Мобильный Комплекс</h3>
+                        <p class="model-desc">4 кабинки с общим тамбуром для крупных мероприятий</p>
+                        <div class="model-features">
+                            <span><i class="fas fa-users"></i> 50-200 чел/день</span>
+                            <span><i class="fas fa-snowflake"></i> -10°C...+35°C</span>
+                            <span><i class="fas fa-weight"></i> 450 кг</span>
+                        </div>
+                        <div class="model-price">
+                            <span class="price-old">8 000 ₽</span>
+                            <span class="price-current">6 500 ₽/сутки</span>
+                        </div>
+                        <button class="btn btn-outline btn-block" onclick="selectModel('Мобильный Комплекс')">
+                            <i class="fas fa-cart-plus"></i> Выбрать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Калькулятор -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Калькулятор <span class="accent">стоимости</span></h2>
+                <p class="section-subtitle">Рассчитайте стоимость аренды в реальном времени</p>
+            </div>
+            
+            <div class="calculator-container glass-effect">
+                <div class="calculator-sidebar">
+                    <div class="calc-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4><i class="fas fa-toilet"></i> Выберите модель</h4>
+                            <div class="model-selector">
+                                <select id="calcModel" class="form-select">
+                                    <option value="990">Стандарт Эко (990 ₽/сутки)</option>
+                                    <option value="1490" selected>Комфорт Плюс (1 490 ₽/сутки)</option>
+                                    <option value="1990">Премиум Люкс (1 990 ₽/сутки)</option>
+                                    <option value="6500">Мобильный Комплекс (6 500 ₽/сутки)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4><i class="fas fa-calendar-alt"></i> Срок аренды</h4>
+                            <div class="days-slider">
+                                <input type="range" id="calcDays" min="1" max="30" value="7" class="slider">
+                                <div class="days-labels">
+                                    <span>1 день</span>
+                                    <span id="daysValue">7 дней</span>
+                                    <span>30 дней</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4><i class="fas fa-users"></i> Количество</h4>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" data-action="decrease">-</button>
+                                <input type="number" id="calcQuantity" min="1" max="10" value="1" readonly>
+                                <button class="qty-btn" data-action="increase">+</button>
+                                <span class="qty-label">кабинок</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4><i class="fas fa-map-marker-alt"></i> Город доставки</h4>
+                            <div class="city-search">
+                                <input type="text" id="calcCity" placeholder="Введите город..." list="cities">
+                                <datalist id="cities">
+                                    <option value="Москва">
+                                    <option value="Санкт-Петербург">
+                                    <option value="Екатеринбург">
+                                    <option value="Новосибирск">
+                                    <option value="Казань">
+                                    <option value="Нижний Новгород">
+                                    <option value="Краснодар">
+                                    <option value="Вологда">
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-main">
+                    <div class="calc-result">
+                        <div class="result-header">
+                            <h3>Итоговая стоимость</h3>
+                            <div class="result-accuracy">
+                                <span class="accuracy-text">Точность расчета:</span>
+                                <div class="accuracy-bar">
+                                    <div class="accuracy-fill"></div>
+                                </div>
+                                <span class="accuracy-value">97%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-summary">
+                            <div class="summary-item">
+                                <span>Аренда (7 дней)</span>
+                                <span id="rentCost">10 430 ₽</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Доставка и установка</span>
+                                <span id="deliveryCost">1 500 ₽</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Обслуживание (2 раза)</span>
+                                <span id="serviceCost">800 ₽</span>
+                            </div>
+                            <div class="summary-item discount">
+                                <span>Скидка за длительную аренду</span>
+                                <span id="discountValue">- 520 ₽</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Итого к оплате</span>
+                                <span id="totalCost">12 210 ₽</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-actions">
+                            <button class="btn btn-primary btn-lg" onclick="scrollToSection('order')">
+                                <i class="fas fa-file-invoice"></i> Оформить заказ
+                            </button>
+                            <button class="btn btn-outline" onclick="printEstimate()">
+                                <i class="fas fa-print"></i> Распечатать смету
+                            </button>
+                        </div>
+                        
+                        <div class="result-note">
+                            <i class="fas fa-info-circle"></i>
+                            <span>В стоимость включены: доставка, установка, первое обслуживание, консультация специалиста</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма заказа -->
+    <section id="order" class="order-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Оформление <span class="accent">заказа</span></h2>
+                <p class="section-subtitle">Заполните форму и наш менеджер свяжется с вами в течение 15 минут</p>
+            </div>
+            
+            <div class="order-container">
+                <div class="order-form-container glass-effect" data-tilt>
+                    <form id="orderForm" novalidate>
+                        <div class="form-grid">
+                            <div class="form-group floating-label">
+                                <input type="text" id="orderName" name="name" required pattern="[А-Яа-яЁё\s]{2,}">
+                                <label for="orderName"><i class="fas fa-user"></i> Ваше имя</label>
+                                <div class="form-helper">Минимум 2 буквы</div>
+                            </div>
+                            
+                            <div class="form-group floating-label">
+                                <input type="tel" id="orderPhone" name="phone" required pattern="\+7\s?[\(]?\d{3}[\)]?\s?\d{3}[\-]?\d{2}[\-]?\d{2}">
+                                <label for="orderPhone"><i class="fas fa-phone"></i> Телефон</label>
+                                <div class="form-helper">Формат: +7 (999) 123-45-67</div>
+                            </div>
+                            
+                            <div class="form-group floating-label">
+                                <input type="email" id="orderEmail" name="email" required>
+                                <label for="orderEmail"><i class="fas fa-envelope"></i> Email</label>
+                                <div class="form-helper">Для отправки деталей заказа</div>
+                            </div>
+                            
+                            <div class="form-group floating-label">
+                                <select id="orderCity" name="city" required>
+                                    <option value=""></option>
+                                    <option value="Москва">Москва</option>
+                                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                                    <option value="Екатеринбург">Екатеринбург</option>
+                                    <option value="Другой">Другой город</option>
+                                </select>
+                                <label for="orderCity"><i class="fas fa-map-marker-alt"></i> Город</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group floating-label">
+                            <textarea id="orderMessage" name="message" rows="3" placeholder=" "></textarea>
+                            <label for="orderMessage"><i class="fas fa-comment-dots"></i> Дополнительные пожелания</label>
+                            <div class="char-counter">
+                                <span id="charCount">0</span>/500 символов
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="orderAgreement" name="agreement" required>
+                                <span class="checkmark"></span>
+                                <span>Я соглашаюсь с <a href="#" onclick="openPrivacyModal()">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-block btn-submit">
+                                <span class="btn-text">
+                                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                                </span>
+                                <div class="btn-loading">
+                                    <div class="spinner"></div>
+                                    <span>Отправка...</span>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Чат-бот -->
+                <div class="chat-bot-widget js-required">
+                    <div class="chat-header" onclick="toggleChat()">
+                        <div class="bot-avatar">
+                            <img src="assets/gifs/waving-bot.gif" alt="AI Ассистент" loading="lazy">
+                        </div>
+                        <div class="bot-info">
+                            <h4>ТуалетБио Ассистент</h4>
+                            <div class="bot-status">
+                                <span class="status-dot online"></span>
+                                <span class="status-text">Online</span>
+                            </div>
+                        </div>
+                        <button class="chat-toggle">
+                            <i class="fas fa-chevron-down" id="chatToggleIcon"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="chat-body" id="chatBody">
+                        <div class="chat-message bot">
+                            <div class="message-content">
+                                Привет! Я AI-ассистент ТуалетБио. Помогу подобрать биотуалет и рассчитаю стоимость за 30 секунд! 🚀
+                            </div>
+                            <div class="message-time">Только что</div>
+                        </div>
+                        
+                        <div class="quick-replies">
+                            <button class="quick-reply" data-reply="Рассчитать стоимость">
+                                💰 Рассчитать стоимость
+                            </button>
+                            <button class="quick-reply" data-reply="Подобрать модель">
+                                🚽 Подобрать модель
+                            </button>
+                            <button class="quick-reply" data-reply="Узнать про доставку">
+                                🚚 Узнать про доставку
+                            </button>
+                            <button class="quick-reply" data-reply="Связаться с менеджером">
+                                👨‍💼 Связаться с менеджером
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Напишите ваш вопрос...">
+                        <button class="chat-send" id="chatSend">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Часто задаваемые <span class="accent">вопросы</span></h2>
+                <p class="section-subtitle">Ответы на самые популярные вопросы наших клиентов</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="question-text">Как быстро осуществляется доставка?</span>
+                        <span class="question-icon">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Доставка в пределах города осуществляется в течение <strong>2 часов*</strong> после подтверждения заказа. Для пригорода — до 4 часов. Мы работаем круглосуточно, 7 дней в неделю.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="question-text">Входит ли в стоимость установка и обслуживание?</span>
+                        <span class="question-icon">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, в стоимость аренды включены: <strong>доставка, профессиональная установка на ровную поверхность и первое обслуживание</strong>. Дальнейшее обслуживание оплачивается отдельно или можно включить в пакет.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="question-text">Можно ли использовать биотуалет зимой?</span>
+                        <span class="question-icon">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, мы предоставляем <strong>зимние модели с утеплением и антифризными добавками</strong>, которые работают при температуре до -20°C. Также доступна опция подогрева.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="question-text">Как часто нужно обслуживать биотуалет?</span>
+                        <span class="question-icon">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Частота обслуживания зависит от нагрузки:
+                            <ul>
+                                <li>1-10 чел/день — каждые 5-7 дней</li>
+                                <li>10-30 чел/день — каждые 3-4 дня</li>
+                                <li>30+ чел/день — каждые 1-2 дня</li>
+                            </ul>
+                            Мы можем настроить индивидуальный график обслуживания.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="question-text">Работаете ли вы по всей России?</span>
+                        <span class="question-icon">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, мы работаем <strong>по всей территории Российской Федерации</strong>. Для отдаленных регионов сроки доставки рассчитываются индивидуально. Стоимость доставки в регионы зависит от удаленности.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="question-text">Какие документы вы предоставляете?</span>
+                        <span class="question-text">В какой момент можно использовать в начале предложения?</span>
+                        <span class="question-icon">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Мы предоставляем полный пакет документов: <strong>договор аренды/продажи, акт приема-передачи, накладные, счета на оплату, закрывающие акты</strong>. Работаем с НДС и без НДС.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши <span class="accent">контакты</span></h2>
+                <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
+            </div>
+            
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Телефон</h3>
+                    <div class="contact-info">
+                        <a href="tel:+79957886668" class="contact-link">+7 (995) 778-66-68</a>
+                        <p>Круглосуточно, без выходных</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <div class="contact-info">
+                        <a href="mailto:antidolgi24@gmail.com" class="contact-link">antidolgi24@gmail.com</a>
+                        <p>Для коммерческих предложений</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Режим работы</h3>
+                    <div class="contact-info">
+                        <div class="contact-time">24/7</div>
+                        <p>Доставка и обслуживание круглосуточно</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>География работы</h3>
+                    <div class="contact-info">
+                        <div class="contact-region">Вся Россия</div>
+                        <p>От Калининграда до Владивостока</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://vk.com/tualetbio" class="social-link" target="_blank" rel="noopener" aria-label="ВКонтакте">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="https://t.me/tualetbio_bot" class="social-link" target="_blank" rel="noopener" aria-label="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://wa.me/79957886668" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="#hero" class="footer-logo">
+                        <div class="logo-icon small">
+                            <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 5C29 5 35 15 35 20C35 25 29 35 20 35C11 35 5 25 5 20C5 15 11 5 20 5Z" fill="#00C9B1"/>
+                                <rect x="15" y="12" width="10" height="16" rx="2" fill="white" stroke="#00C9B1" stroke-width="1"/>
+                                <circle cx="24" cy="20" r="1.5" fill="#FF7A00"/>
+                                <text x="20" y="38" text-anchor="middle" font-family="Arial" font-size="8" fill="#2A5D8A">.РФ</text>
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">ТУАЛЕТ<span class="logo-accent">БИО</span></span>
+                            <span class="logo-domain">туалетбио.рф</span>
+                        </div>
+                    </a>
+                    <p class="footer-tagline">Чистота, доступная в один клик. Профессиональные санитарные решения по всей России.</p>
+                    <div class="footer-contacts">
+                        <a href="tel:+74951234567" class="contact-link">
+                            <i class="fas fa-phone"></i> +7 (995) 119-4-911
+                        </a>
+                        <a href="mailto:info@туалетбио.рф" class="contact-link">
+                            <i class="fas fa-envelope"></i> info@туалетбио.рф
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Услуги</h4>
+                        <a href="#services" onclick="scrollToSection('services')">Аренда биотуалетов</a>
+                        <a href="#services" onclick="scrollToSection('services')">Продажа биотуалетов</a>
+                        <a href="#services" onclick="scrollToSection('services')">Обслуживание</a>
+                        <a href="#services" onclick="scrollToSection('services')">Доставка и установка</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Компания</h4>
+                        <a href="#advantages" onclick="scrollToSection('advantages')">О нас</a>
+                        <a href="#faq" onclick="scrollToSection('faq')">FAQ</a>
+                        <a href="#contacts" onclick="scrollToSection('contacts')">Контакты</a>
+                        <a href="#" onclick="openPrivacyModal()">Политика конфиденциальности</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Документы</h4>
+                        <a href="#" onclick="downloadFile('Договор аренды')">Договор аренды</a>
+                        <a href="#" onclick="downloadFile('Прайс-лист')">Прайс-лист</a>
+                        <a href="#" onclick="downloadFile('Реквизиты')">Реквизиты</a>
+                        <a href="#" onclick="openInstruction()">Инструкция по эксплуатации</a>
+                    </div>
+                </div>
+                
+                <div class="footer-cta">
+                    <h4>Готовы заказать?</h4>
+                    <p>Оставьте заявку и получите скидку 10% на первый заказ</p>
+                    <button class="btn btn-primary" onclick="scrollToSection('order')">
+                        <i class="fas fa-bolt"></i> Оставить заявку
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2026 <strong>ТуалетБио</strong>. Все права защищены.</p>
+                    <p class="dev-credit">Сайт создан с ❤️ для вашего комфорта</p>
+                </div>
+                
+                <div class="footer-tech">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">WebGL</span>
+                    <span class="tech-badge">3D</span>
+                    <span class="tech-badge">PWA</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-animation">
+            <div class="success-check">
+                <svg class="checkmark" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h3>Заявка принята!</h3>
+            <p>Наш менеджер свяжется с вами в течение 15 минут для уточнения деталей заказа.</p>
+            <div class="countdown">
+                <div class="countdown-number">15</div>
+                <div class="countdown-label">минут до звонка</div>
+            </div>
+            <button class="btn btn-primary" onclick="closeModal()">
+                <i class="fas fa-check"></i> Отлично!
+            </button>
+        </div>
+    </div>
+    
+    <div class="modal" id="privacyModal">
+        <div class="modal-content privacy-content">
+            <div class="modal-header">
+                <h3>Политика конфиденциальности</h3>
+                <button class="modal-close" onclick="closePrivacyModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Текст политики конфиденциальности будет здесь после оплаты :)...</p>
+              
+                <!-- Добавьте полный текст политики конфиденциальности -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="model3DModal">
+        <div class="modal-content model3d-content">
+            <div class="modal-header">
+                <h3>3D-тур по биотуалету</h3>
+                <button class="modal-close" onclick="closeModel3D()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="model3d-viewer" id="model3dViewer">
+                    <!-- 3D модель будет здесь -->
+                    <div class="toilet-3d-full" id="toilet3DFull"></div>
+                </div>
+                <div class="model3d-controls">
+                    <button class="model-btn" onclick="rotateModel('left')">
+                        <i class="fas fa-undo"></i> Вращать
+                    </button>
+                    <button class="model-btn" onclick="zoomModel('in')">
+                        <i class="fas fa-search-plus"></i> Приблизить
+                    </button>
+                    <button class="model-btn" onclick="toggleModelPart('door')">
+                        <i class="fas fa-door-open"></i> Дверь
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Прогресс-бар страницы -->
+    <div class="page-progress" id="pageProgress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="script.js"></script>
+    
+    <!-- Аналитика (замените на свои коды) -->
+    <script>
+        // Yandex.Metrika placeholder
+        // (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        // m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        // (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        // ym(XXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+        
+        // Google Analytics placeholder
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'G-XXXXXXXXXX');
+        
+        // Приветствие в консоли
+        console.log('%c🚀 ТуалетБио v3.0', 'font-size: 24px; color: #00C9B1; font-weight: bold;');
+        console.log('%c✨ Технологии: WebGL, CSS 3D, AI-бот, PWA', 'color: #FF7A00;');
+        console.log('%c📞 Контакты: +7 (995) 788-66-68', 'color: #2A5D8A;');
+    </script>
+</body>
+</html>
